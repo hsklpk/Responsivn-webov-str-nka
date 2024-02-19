@@ -1,0 +1,438 @@
+:root {
+  --hlp-color-1: #6ac5ac;
+  --hlp-color-2: #d64078;
+  --hlp-color-3: #fdc72f;
+  --body-text: #000;
+  --body-text-negativ: #fff;
+  --body-link: #efa69d;
+  --body-link-hover: #e9877b;
+  --header-background: #33292a;
+  --section-background: #644b4f;
+  --footer-background: #333333;
+  --neutral-background: #f2f2f2;
+  --content-max-width: 1140px;
+}
+
+/* Reset - Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+    Globální nastavení
+   ======================================== */
+body {
+  color: var(--body-text);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+a,
+a:visited {
+  color: var(--body-link);
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: var(--body-link-hover);
+  text-decoration: underline;
+  outline: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-container {
+  max-width: var(--content-max-width);
+  padding: 1.25em;
+  margin: 2.5em auto;
+}
+
+.bg-dark-1 {
+  background-color: var(--section-background);
+}
+
+.text-white {
+  color: var(--body-text-negativ);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Tlačítko */
+.button {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 1em 0;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--neutral-background);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: white;
+}
+
+a.button,
+a:visited.button {
+  color: var(--body-text);
+  text-decoration: none;
+}
+
+a:hover.button,
+a:active.button,
+a:focus.button {
+  color: var(--body-text);
+  text-decoration: none;
+  outline: none;
+}
+/* ===============================================
+    Jednoduchý grid systém za pomocí flexboxu
+   =============================================== */
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.one-full,
+.one-half,
+.one-third,
+.two-third,
+.one-fourth {
+  flex-basis: 100%;
+  padding: 1em 1em 0.5em 1em;
+}
+
+@media only screen and (min-width: 36em) {
+  .one-full {
+    flex-basis: 75%;
+    margin: auto;
+  }
+  .one-half {
+    flex-basis: 48.5%;
+  }
+  .one-third {
+    flex-basis: 31.33%;
+  }
+  .two-third {
+    flex-basis: 65.67%;
+  }
+  .one-fourth {
+    flex-basis: 22.75%;
+  }
+}
+
+/* ===============================================
+    Záhlaví s hlavní navigací (Mobile First Menu)
+   =============================================== */
+.navbar {
+  display: flex;
+  background-color: var(--header-background);
+}
+
+.navbar-menu {
+  display: none;
+  width: 100%;
+}
+
+.navbar-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-menu li a {
+  position: relative;
+  display: block;
+  padding: 14px 16px;
+  color: var(--body-text-negativ);
+  text-align: center;
+  text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+  background-color: rgba(256, 256, 256, 0.1);
+}
+
+.navbar-menu li a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: rgba(256, 256, 256, 0.5);
+}
+
+.navbar-icon {
+  display: inline-block;
+  padding: 8px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.navbar-icon .icon-bar {
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background-color: var(--body-text-negativ);
+}
+
+@media only screen and (min-width: 36em) {
+  .navbar-menu {
+    display: block;
+  }
+  .navbar-menu ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-menu li {
+    flex: 1 0 auto;
+  }
+  .navbar-icon {
+    display: none;
+  }
+}
+
+/* ========================================
+    Sekce Hero image
+   ======================================== */
+.hero-image {
+  width: 100%;
+  height: 86vh;
+  background: no-repeat center/cover
+    url("images/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg");
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  width: 240px;
+  margin-left: auto;
+}
+
+.hero-text .hero-title {
+  margin: 0;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: right;
+  word-wrap: break-word;
+}
+
+@media only screen and (min-width: 36em) {
+  .hero-text {
+    width: 324px;
+  }
+  .hero-text .hero-title {
+    font-size: 64px;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .hero-container {
+    max-width: var(--content-max-width);
+  }
+  .hero-text {
+    width: 440px;
+  }
+  .hero-text .hero-title {
+    font-size: 96px;
+  }
+}
+
+/* ========================================
+    Karty s ikonamy seznam služeb
+   ======================================== */
+.services {
+  padding: 2em 0;
+}
+
+.services-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.services-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+.services-text {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ========================================
+    Galerie fotek z výletů (Our trips)
+   ======================================== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.gallery-heading {
+  background-color: var(--neutral-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.gallery-heading h2 {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 36em) {
+  .gallery-item {
+    width: calc(100% / 3 - 20px);
+  }
+}
+
+/* ===============================================
+    Uživatelské recenze (Reviews)
+   =============================================== */
+.perex {
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.review-card {
+  /* max-width: 300px; */
+  text-align: center;
+  /* padding: 4em; */
+}
+
+.review-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-text {
+  margin-top: 2em;
+}
+.review-name {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 40em) {
+  .review-card {
+    padding: 2em;
+  }
+}
+
+/* ========================================
+    Zápatí s galerií fotek
+   ======================================== */
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.photo-gallery-item {
+  width: 100%;
+  height: 260px;
+  transition: transform 0.25s;
+}
+
+.photo-gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.photo-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 48em) {
+  .photo-gallery-item {
+    width: 50%;
+    height: 420px;
+  }
+}
+
+.contact-container {
+  background-color: var(--footer-background);
+  color: var(--body-text-negativ);
+}
+
+.contact-container-text {
+  max-width: var(--content-max-width);
+  padding: 1.25em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container-text h6 {
+  margin: 1em;
+  font-size: 16px;
+}
